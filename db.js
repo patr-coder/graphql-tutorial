@@ -283,7 +283,8 @@ const categories = [
     name: "Sports",
   },
 ];
-module.exports ={
+// module.exports ={
+  exports.db ={
     products,
     categories,
     reviews,
