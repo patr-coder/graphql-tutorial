@@ -8,6 +8,9 @@ exports.typeDefs = gql `
         numberOfAnimals: Int
         price: Float
         isCool: Boolean
+        users:[User!]!
+        user(id:ID!):User
+
       #   products:[Product!]!
         products(filter: ProductsFilterInput):[Product!]!
         product(id:ID!):Product
@@ -16,6 +19,15 @@ exports.typeDefs = gql `
         reviews:[Review!]!
         review(id: ID!):Review!
         
+     }
+     type User{
+      id:ID!
+      name:String!
+      last_name : String!
+      email:String!
+      number: String!
+      isAdmin: Boolean !
+      password : String!
      }
      type Mutation{
       addCategory(input: AddCategoryInput!): Category!
@@ -27,6 +39,9 @@ exports.typeDefs = gql `
       updateCategory(id:ID!, input: UpdateCategoryInput!):Category
       updateProduct(id:ID!, input: UpdateProductInput!):Product
       updateReview(id:ID!, input: UpdateReviewInput!):Review
+      addUser(input: AddUserInput!):User!
+      deleteUser(id:ID!):Boolean!
+      updateUser(id:ID!, input: UpdateUserInput!):User!
      }
 
      type Product {
@@ -52,6 +67,7 @@ exports.typeDefs = gql `
       title: String!
       comment:String!
       rating: Int!
+      product:Product
      }
      input ProductsFilterInput{
       onSale: Boolean 
@@ -97,5 +113,21 @@ exports.typeDefs = gql `
       rating: Int!
       productId:ID!
 
+     }
+     input AddUserInput{
+      name:String!
+      last_name : String!
+      email : String!
+      number : String!
+      isAdmin: Boolean !
+      password : String!
+     }
+     input UpdateUserInput{
+      name:String!
+      last_name : String!
+      email : String!
+      number : String!
+      isAdmin: Boolean !
+      password : String!
      }
 `;

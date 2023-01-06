@@ -283,9 +283,62 @@ const categories = [
     name: "Sports",
   },
 ];
+const users = [
+  {
+    id: "012345",
+    name: "Patrick beau",
+    last_name: "jhon",
+    email: "patrick@gd.com",
+    number: "76227548",
+    isAdmin: true,
+    password: "password",
+
+  },
+  {
+    id: "0123456",
+    name: "beau",
+    email: "patson@gmail.com",
+    last_name : "Patson",
+    isAdmin : false,
+    number : "873523543",
+    password : "password",
+
+  },
+  {
+    id: "01234567",
+    name: "beau vent",
+    email: "patson@gmail.com",
+    last_name : "Patsone",
+    isAdmin : false,
+    number : "873523543",
+    password : "password",
+
+  },
+  {
+    id: "012345678",
+    name: "beauneant",
+    email: "patson@gmail.com",
+    last_name : "Patson",
+    isAdmin : false,
+    number : "873523543",
+    password : "password",
+
+  },
+  {
+    id: "0123456789",
+    name: "Daddy",
+    email: "patson@gmail.com",
+    last_name : "Patson",
+    isAdmin : false,
+    number : "873523543",
+    password : "password",
+
+  }
+]
 // module.exports ={
   exports.db ={
     products,
     categories,
     reviews,
+    users,
 }

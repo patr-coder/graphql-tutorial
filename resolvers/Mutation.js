@@ -1,7 +1,7 @@
 const {v4: uuid} = require("uuid")
 exports.Mutation ={
     addCategory: (parent, {input}, {db}) =>{
-        const {name} = input
+        const {name} = input;
         const newCategory = {
             id: uuid(),
             name
@@ -19,6 +19,7 @@ exports.Mutation ={
             onSale,
             quantity,
             categoryId
+
 
         } = input;
         const newProduct = {
@@ -102,4 +103,33 @@ exports.Mutation ={
         };
         return db.reviews[index];
 },
+addUser:(parent,{input},{db})=>{
+    const {name,last_name, email,number,isAdmin,password} = input;
+    const newUser ={
+        id:uuid(),
+        name,
+        last_name,
+        email,
+        number,
+        isAdmin,
+        password,
+    }
+    db.users.push(newUser);
+    return newUser;
+},
+deleteUser:(parent,{id}, {db})=>{
+    db.users = db.users.filter((user) => user.id !== id);
+    return true;
+},
+updateUser:(parent,{id, input}, {db})=>{
+    const index = db.users.findIndex((user) => user.id === id);
+    console.log(index);
+    if(index === -1) return null;
+    db.users[index] ={
+        ...db.users[index],
+        ...input,
+    };
+    return db.users[index];
+}
+
 }

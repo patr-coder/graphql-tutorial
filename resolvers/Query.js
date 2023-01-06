@@ -1,4 +1,4 @@
-const {categories,products, reviews} = require("../db");
+const {categories,products, reviews,users, db} = require("../db");
 
 exports. Query={
     hello: () => {
@@ -25,6 +25,9 @@ exports. Query={
     },
     reviews: () =>{
       return reviews;
+    },
+    users: () => {
+      return db.users;
     },
     // products: (parent,args,context) => products,
     // product: (parent, args, context) => {
@@ -77,4 +80,14 @@ exports. Query={
         // const category = categories.find((category) => category.id === id);
         // return category;
     },
+    reviews:(parent,args, {db}) => db.reviews,
+    review:(parent,{id},{db})=>{
+      return db.reviews.find((review) => review.id ===id);
+
+    },
+    users:(parent,args,{db}) => db.users,
+    user:(parent,{id},{db}) =>{
+      return db.users.find((user) => user.id ===id);
+    }
+    
   }

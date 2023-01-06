@@ -4,6 +4,8 @@ const {Query} = require("./resolvers/Query")
 const {Mutation} = require("./resolvers/Mutation")
 const {Category} = require("./resolvers/Category")
 const {Product} = require("./resolvers/Product")
+const {Review} = require("./resolvers/Review");
+// const {User} = require("./resolvers/User")
 // const{categories,products,reviews} = require("./db")
 const{db} = require("./db")
 
@@ -13,7 +15,9 @@ const server = new ApolloServer({
     Query,
     Mutation,
     Category,
-    Product
+    Product,
+    Review,
+    // User,
   },context:{
     // categories,
     // products,
