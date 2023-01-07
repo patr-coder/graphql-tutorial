@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --recursive test/",
     "dev": "nodemon index"
   },
   "keywords": [],
@@ -12,7 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "apollo-server": "^3.11.1",
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
     "graphql": "^16.6.0",
+    "graphql-request": "^5.1.0",
+    "mocha": "^10.2.0",
     "uuid": "^9.0.0"
   }
 }
