@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Install package
-        run: npm install
+        run: npm install -g nodemon && npm install
 
       - name: Run Index
         run: npm run dev
