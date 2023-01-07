@@ -15,9 +15,7 @@ describe('Product', () => {
         }
       `;
 
-        const {
-            products
-        } = await request('http://localhost:4000/graphql', query);
+        const { products } = await request('http://localhost:4000/graphql', query);
 
 
         chai.expect(products).to.be.an('array');
